@@ -3,6 +3,8 @@ package fr.coding.pastadellamamma.controller;
 import fr.coding.pastadellamamma.model.Menu;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Group;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -12,6 +14,7 @@ import javafx.scene.layout.VBox;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.geometry.Insets;
 
 public class MenuController implements Initializable {
     @FXML
@@ -52,12 +55,14 @@ public class MenuController implements Initializable {
             menus.add(menu);
 
             VBox dishe = new VBox();
+            dishe.setSpacing(50);
 
             Label disheName = new Label();
             disheName.setText(name);
 
             dishe.getChildren().add(disheName);
             dishes.getChildren().add(dishe);
+            dishe.getStyleClass().add("dishees");
         });
     }
 }
