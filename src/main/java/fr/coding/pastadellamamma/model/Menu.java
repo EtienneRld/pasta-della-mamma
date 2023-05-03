@@ -5,4 +5,11 @@ public class Menu {
     String description;
     float price;
     String image;
+
+    public Menu(String name, String description, float price, String image) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.image = image;
+    }
 }
