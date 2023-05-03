@@ -12,4 +12,12 @@ public class Menu {
         this.price = price;
         this.image = image;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getImage() {
+        return image;
+    }
 }

@@ -3,22 +3,17 @@ package fr.coding.pastadellamamma.controller;
 import fr.coding.pastadellamamma.model.Menu;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Group;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import javafx.geometry.Insets;
 
 public class MenuController implements Initializable {
     @FXML
@@ -39,6 +34,9 @@ public class MenuController implements Initializable {
     @FXML
     public AnchorPane dishes;
 
+    @FXML
+    public ListView<String> dishesList;
+
     ArrayList<Menu> menus = new ArrayList<>();
 
     @Override
@@ -58,25 +56,43 @@ public class MenuController implements Initializable {
             Menu menu = new Menu(name, description, price, image);
             menus.add(menu);
 
-            VBox dishe = new VBox();
-            dishe.setSpacing(50);
+            dishesList.getItems().add(name);
 
-            Label disheName = new Label();
-            disheName.setText(name);
+            ////////////////////////////////////////////////////////
 
-            Image disheImage = new Image(image);
-            ImageView disheImageView = new ImageView(disheImage);
+            dishesList.setCellFactory(param -> new ListCell<String>() {
+                private final ImageView dishImageView = new ImageView();
+                @Override
+                public void updateItem(String name, boolean empty) {
+                    super.updateItem(name, empty);
 
-            disheImageView.setFitHeight(200);
-            disheImageView.setFitWidth(200);
+                    if (empty) {
+                        setText(null);
+                        setGraphic(null);
+                    } else {
+                        Menu menu = menus.stream()
+                                .filter(m -> m.getName().equals(name))
+                                .findFirst().get();
 
+                        dishImageView.setFitHeight(32);
+                        dishImageView.setFitWidth(32);
+                        dishImageView.setImage(new Image(menu.getImage()));
 
-            dishe.getChildren().add(disheName);
-            dishe.getChildren().add(disheImageView);
-            dishe.getStyleClass().add("dishees");
+                        setText(name);
+                        setGraphic(dishImageView);
+                    }
+                }
+            });
+        });
 
-            dishes.getChildren().add(dishe);
+        dishesList.setOnMouseClicked(e -> {
+            int index = dishesList.getSelectionModel().getSelectedIndex();
 
+            if (index < 0) {
+                return;
+            }
+
+            System.out.println(menus.get(index));
         });
     }
 }
