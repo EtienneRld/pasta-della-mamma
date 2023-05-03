@@ -20,6 +20,7 @@ import javafx.scene.control.ListView;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class ShowEmployeController implements Initializable {
@@ -36,10 +37,15 @@ public class ShowEmployeController implements Initializable {
     @Override
     @FXML public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        employeListView.setCellFactory(list -> new MyListCell());
-        ObservableList<Employes> employes = FXCollections.observableArrayList(Main.pastaDellaMamma.getListEmployes());
-        employeListView.setItems(employes);
 
+
+        ObservableList<Employes> employes = FXCollections.observableArrayList(Main.pastaDellaMamma.getListEmployes());
+        List<Employes> employe2 = employes;
+
+        employeListView.setItems(employes);
+        //System.out.println(employes);
+        employeListView.setCellFactory(list -> new MyListCell(employe2));
+        System.out.println(".");
     }
 
 }

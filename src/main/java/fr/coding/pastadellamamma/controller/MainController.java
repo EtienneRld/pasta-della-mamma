@@ -23,6 +23,10 @@ public class MainController implements Initializable {
 
     @FXML
     public MenuItem menu;
+    @FXML
+    public MenuItem amployeList;
+    @FXML
+    public MenuItem employe;
 
     public void loadFXML(String name, String title) {
         try {
@@ -43,5 +47,7 @@ public class MainController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         home.setOnAction(e -> loadFXML("main.fxml", "Pasta della mamma"));
         menu.setOnAction(e -> loadFXML("menu.fxml", "Menu"));
+        amployeList.setOnAction(e -> loadFXML("amployeList.fxml", "Liste des employés"));
+
     }
 }

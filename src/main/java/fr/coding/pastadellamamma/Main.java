@@ -28,7 +28,9 @@ public class Main extends Application {
 public  void instantiateEmploye(){
     pastaDellaMamma = new Restaurant();
     Employes eployer1 = new Employes("louis", "edward", "serveur");
+    Employes eployer2 = new Employes("pierre", "edward", "serveur");
     pastaDellaMamma.addEmployes(eployer1);
+    pastaDellaMamma.addEmployes(eployer2);
 }
 
     public static void main(String[] args) {
