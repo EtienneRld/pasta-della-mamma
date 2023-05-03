@@ -5,4 +5,6 @@ module fr.coding.pastadellamamma {
 
     opens fr.coding.pastadellamamma to javafx.fxml;
     exports fr.coding.pastadellamamma;
+    exports fr.coding.pastadellamamma.controller;
+    opens fr.coding.pastadellamamma.controller to javafx.fxml;
 }
