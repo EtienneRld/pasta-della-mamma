@@ -8,9 +8,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -60,9 +64,19 @@ public class MenuController implements Initializable {
             Label disheName = new Label();
             disheName.setText(name);
 
+            Image disheImage = new Image(image);
+            ImageView disheImageView = new ImageView(disheImage);
+
+            disheImageView.setFitHeight(200);
+            disheImageView.setFitWidth(200);
+
+
             dishe.getChildren().add(disheName);
-            dishes.getChildren().add(dishe);
+            dishe.getChildren().add(disheImageView);
             dishe.getStyleClass().add("dishees");
+
+            dishes.getChildren().add(dishe);
+
         });
     }
 }
