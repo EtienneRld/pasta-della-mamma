@@ -1,42 +1,47 @@
 package fr.coding.pastadellamamma.controller;
-import fr.coding.pastadellamamma.Main;
-import fr.coding.pastadellamamma.model.Employes;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.*;
 
+import fr.coding.pastadellamamma.Main;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.control.MenuItem;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
 
-@FXML private TextField firstNameLbl;
-@FXML private TextField nameLbl;
-@FXML private ChoiceBox<String> jobCBox;
+    @FXML
+    public VBox content;
 
-    private String[] jobs = {"Cuisiner", "Serveur", "Plongeur"};
+    @FXML
+    public MenuItem home;
 
-    private String name;
-    private String firstName;
-    private String currentJob;
-    @FXML private void submit(){
-        currentJob = jobCBox.getValue();
-        name = nameLbl.getText();
-        firstName = firstNameLbl.getText();
+    @FXML
+    public MenuItem menu;
 
-        Employes employe = new Employes( name,firstName, currentJob);
-        Main.pastaDellaMamma.addEmployes(employe);
+    public void loadFXML(String name, String title) {
+        try {
+            VBox menu = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(name)));
+            Stage stage = (Stage)content.getScene().getWindow();
+            stage.setTitle(title);
 
-        System.out.println(Main.pastaDellaMamma.toString());
+            content.getChildren().clear();
+            content.getChildren().add(menu);
 
+            stage.show();
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
-        jobCBox.getItems().addAll(jobs);
-
+    public void initialize(URL location, ResourceBundle resources) {
+        home.setOnAction(e -> loadFXML("main.fxml", "Pasta della mamma"));
+        menu.setOnAction(e -> loadFXML("menu.fxml", "Menu"));
     }
-
-
 }
