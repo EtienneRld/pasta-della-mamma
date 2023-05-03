@@ -2,6 +2,7 @@ package fr.coding.pastadellamamma;
 
 import fr.coding.pastadellamamma.model.Employes;
 import fr.coding.pastadellamamma.model.Restaurant;
+import fr.coding.pastadellamamma.model.Table;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -31,6 +32,17 @@ public  void instantiateEmploye(){
     Employes eployer2 = new Employes("pierre", "edward", "serveur");
     pastaDellaMamma.addEmployes(eployer1);
     pastaDellaMamma.addEmployes(eployer2);
+    Table table1 = new Table("A01",4);
+    Table table2 = new Table("A02",4);
+    Table table3 = new Table("A03",6);
+    Table table4 = new Table("A04",8);
+    Table table5 = new Table("A05",2);
+    pastaDellaMamma.addTables(table1);
+    pastaDellaMamma.addTables(table2);
+    pastaDellaMamma.addTables(table3);
+    pastaDellaMamma.addTables(table4);
+    pastaDellaMamma.addTables(table5);
+
 }
 
     public static void main(String[] args) {
