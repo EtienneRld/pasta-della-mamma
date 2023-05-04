@@ -55,6 +55,7 @@ public class ShowEmployeController implements Initializable {
 
     @FXML private TextField firstNameLbl;
     @FXML private TextField nameLbl;
+
     @FXML private ChoiceBox<String> jobCBox;
     @FXML private Button submitBtn;
     @FXML private VBox containerVBox;
@@ -67,6 +68,17 @@ public class ShowEmployeController implements Initializable {
     @FXML
     private Button submitHours;
 
+    public void setFirstNameLbl(TextField firstNameLbl) {
+        this.firstNameLbl = firstNameLbl;
+    }
+
+    public void setNameLbl(TextField nameLbl) {
+        this.nameLbl = nameLbl;
+    }
+
+    public void setJobCBox(ChoiceBox<String> jobCBox) {
+        this.jobCBox = jobCBox;
+    }
     private String hours;
 
     private String[] jobs = {"Cuisiner", "Serveur", "Plongeur"};
@@ -80,12 +92,13 @@ public class ShowEmployeController implements Initializable {
     public ShowEmployeController() throws IOException {
     }
 
+    private Integer index = null;
+
 
     @Override
     @FXML public void initialize(URL url, ResourceBundle resourceBundle) {
 
         jobCBox.getItems().addAll(jobs);
-
 
         ObservableList<Employes> employes = FXCollections.observableList(Main.pastaDellaMamma.getListEmployes());
         employes.addListener(new ListChangeListener<Employes>() {
@@ -122,9 +135,15 @@ public class ShowEmployeController implements Initializable {
 
 
         employeListView.setOnMouseClicked(e -> {
-            int index = employeListView.getSelectionModel().getSelectedIndex();
-            if (index >= 0){
-                employeListView.getItems().remove(index);
+             index = employeListView.getSelectionModel().getSelectedIndex();
+            System.out.println(employes.get(index).getHours());
+        });
+
+        changeSceneBtn.setOnAction(e ->{
+            if (index != null){
+                int row = index;
+                employeListView.getItems().remove(row);
+                index = null;
             }
         });
 
@@ -133,25 +152,46 @@ public class ShowEmployeController implements Initializable {
             currentJob = jobCBox.getValue();
             name = nameLbl.getText();
             firstName = firstNameLbl.getText();
-            Employes employe = new Employes( name, firstName, currentJob, hours);
+            Employes employe = new Employes( name, firstName, currentJob, "0");
             employes.add(employe);
-            hours = "0";
             System.out.println(employes);
+            jobCBox.setValue("");
+            nameLbl.setText("");
+            firstNameLbl.setText("");
         });
 
 
         submitHours.setOnAction(e -> {
-            if (removeHoursTxtField == null){
-                int addHours = Integer.parseInt(addHoursTxtField.getText());
-                int convertHours = Integer.parseInt(hours);
-                int result = addHours + convertHours;
-                hours = String.valueOf(result);
 
-            } else if (addHoursTxtField == null) {
-                int addHours = Integer.parseInt(removeHoursTxtField.getText());
-                int convertHours = Integer.parseInt(hours);
-                int result = addHours - convertHours;
-                hours = String.valueOf(result);
+            String indexHours = employes.get(index).getHours();
+            int intIndexHours = Integer.parseInt(indexHours);
+            int addHours = Integer.parseInt(addHoursTxtField.getText());
+            int removeHours = Integer.parseInt(removeHoursTxtField.getText());
+
+
+
+            if (index != null && addHours != 0 && removeHours == 0){
+                int result = addHours + intIndexHours;
+                String stringResult = String.valueOf(result);
+                employes.get(index).setHours(stringResult);
+                System.out.println(employes.get(index));
+                addHoursTxtField.setText("0");
+
+
+            } else if (index != null && removeHours != 0 && addHours == 0) {
+                int result = intIndexHours - removeHours;
+                String stringResult = String.valueOf(result);
+                employes.get(index).setHours(stringResult);
+                System.out.println(employes.get(index));
+                removeHoursTxtField.setText("0");
+
+            } else if (index != null && removeHours != 0 && addHours != 0) {
+                int result = intIndexHours + addHours - removeHours;
+                String stringResult = String.valueOf(result);
+                employes.get(index).setHours(stringResult);
+                System.out.println(employes.get(index));
+                removeHoursTxtField.setText("0");
+                addHoursTxtField.setText("0");
             } else {
                 System.out.println("error");
             }
