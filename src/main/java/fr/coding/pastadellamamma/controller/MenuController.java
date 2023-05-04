@@ -3,10 +3,8 @@ package fr.coding.pastadellamamma.controller;
 import fr.coding.pastadellamamma.model.Menu;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.geometry.Pos;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -36,6 +34,21 @@ public class MenuController implements Initializable {
 
     @FXML
     public ListView<String> dishesList;
+
+    @FXML
+    public Label nameDetails;
+
+    @FXML
+    public Label descriptionDetails;
+
+    @FXML
+    public Label priceDetails;
+
+    @FXML
+    public ImageView imageDetails;
+
+    @FXML
+    public AnchorPane detailsAnchor;
 
     ArrayList<Menu> menus = new ArrayList<>();
 
@@ -74,8 +87,8 @@ public class MenuController implements Initializable {
                                 .filter(m -> m.getName().equals(name))
                                 .findFirst().get();
 
-                        dishImageView.setFitHeight(32);
-                        dishImageView.setFitWidth(32);
+                        dishImageView.setFitHeight(70);
+                        dishImageView.setFitWidth(70);
                         dishImageView.setImage(new Image(menu.getImage()));
 
                         setText(name);
@@ -93,6 +106,32 @@ public class MenuController implements Initializable {
             }
 
             System.out.println(menus.get(index));
+
+            Menu selectedMenu = menus.get(index);
+            String name = selectedMenu.getName();
+            String description = selectedMenu.getDescription();
+            float price = selectedMenu.getPrice();
+            String image = selectedMenu.getImage();
+
+            nameDetails.setText(name);
+            descriptionDetails.setText(description);
+            priceDetails.setText(Float.toString(price));
+            imageDetails.setImage(new Image(image));
+
+            nameDetails.setMaxWidth(Double.MAX_VALUE);
+            detailsAnchor.setLeftAnchor(nameDetails, 0.0);
+            detailsAnchor.setRightAnchor(nameDetails, 0.0);
+            nameDetails.setAlignment(Pos.CENTER);
+
+            descriptionDetails.setMaxWidth(Double.MAX_VALUE);
+            detailsAnchor.setLeftAnchor(descriptionDetails, 0.0);
+            detailsAnchor.setRightAnchor(descriptionDetails, 0.0);
+            descriptionDetails.setAlignment(Pos.CENTER);
+
+            priceDetails.setMaxWidth(Double.MAX_VALUE);
+            detailsAnchor.setLeftAnchor(priceDetails, 0.0);
+            detailsAnchor.setRightAnchor(priceDetails, 0.0);
+            priceDetails.setAlignment(Pos.CENTER);
         });
     }
 }
