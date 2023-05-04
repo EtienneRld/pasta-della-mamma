@@ -6,62 +6,58 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.coding.pastadellamamma.controller.ShowEmployeController">
+<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox prefHeight="400.0" prefWidth="600.0">
+      <Button fx:id="changeSceneBtn" mnemonicParsing="false" text="Button" />
+      <ListView fx:id="employeListView" prefHeight="200.0" prefWidth="200.0" />
+      <VBox fx:id="containerVBox" prefHeight="173.0" prefWidth="100.0">
          <children>
-            <Button fx:id="changeSceneBtn" mnemonicParsing="false" text="Button" />
-            <ListView fx:id="employeListView" prefHeight="200.0" prefWidth="200.0" />
-            <VBox fx:id="containerVBox" prefHeight="173.0" prefWidth="100.0">
+            <HBox prefHeight="177.0" prefWidth="600.0">
                <children>
-                  <HBox prefHeight="177.0" prefWidth="600.0">
+                  <VBox alignment="CENTER" prefHeight="204.0" prefWidth="346.0" spacing="20.0">
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
                      <children>
-                        <VBox alignment="CENTER" prefHeight="204.0" prefWidth="346.0" spacing="20.0">
-                           <padding>
-                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                           </padding>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <HBox prefHeight="100.0" prefWidth="200.0">
-                                 <children>
-                                    <Label text="Label" />
-                                    <TextField fx:id="firstNameLbl" />
-                                 </children>
-                              </HBox>
-                              <HBox prefHeight="100.0" prefWidth="200.0">
-                                 <children>
-                                    <Label text="Label" />
-                                    <TextField fx:id="nameLbl" />
-                                 </children>
-                              </HBox>
-                              <ChoiceBox fx:id="jobCBox" prefWidth="150.0" />
-                              <Button fx:id="submitBtn" mnemonicParsing="false" text="Button" />
+                              <Label text="Label" />
+                              <TextField fx:id="firstNameLbl" />
                            </children>
-                        </VBox>
-                        <VBox prefHeight="204.0" prefWidth="319.0">
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <HBox prefHeight="100.0" prefWidth="200.0">
-                                 <children>
-                                    <Label text="Add hours" />
-                                    <TextField fx:id="addHoursTxtField" />
-                                 </children>
-                              </HBox>
-                              <HBox prefHeight="100.0" prefWidth="200.0">
-                                 <children>
-                                    <Label text="Label" />
-                                    <TextField fx:id="removeHoursTxtField" />
-                                 </children>
-                              </HBox>
-                              <Button fx:id="submitHours" mnemonicParsing="false" text="Button" />
+                              <Label text="Label" />
+                              <TextField fx:id="nameLbl" />
                            </children>
-                        </VBox>
+                        </HBox>
+                        <ChoiceBox fx:id="jobCBox" prefWidth="150.0" />
+                        <Button fx:id="submitBtn" mnemonicParsing="false" text="Button" />
                      </children>
-                  </HBox>
-               </children></VBox>
+                  </VBox>
+                  <VBox prefHeight="204.0" prefWidth="319.0">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Add hours" />
+                              <TextField fx:id="addHoursTxtField" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Label" />
+                              <TextField fx:id="removeHoursTxtField" />
+                           </children>
+                        </HBox>
+                        <Button fx:id="submitHours" mnemonicParsing="false" text="Button" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
          </children>
       </VBox>
    </children>
-</AnchorPane>
+</VBox>
