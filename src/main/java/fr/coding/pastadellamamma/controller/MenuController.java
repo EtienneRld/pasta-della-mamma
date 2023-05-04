@@ -115,7 +115,7 @@ public class MenuController implements Initializable {
 
             nameDetails.setText(name);
             descriptionDetails.setText(description);
-            priceDetails.setText(Float.toString(price));
+            priceDetails.setText(Float.toString(price) + " €");
             imageDetails.setImage(new Image(image));
 
             nameDetails.setMaxWidth(Double.MAX_VALUE);
