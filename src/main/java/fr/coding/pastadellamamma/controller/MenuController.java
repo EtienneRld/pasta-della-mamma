@@ -3,18 +3,15 @@ package fr.coding.pastadellamamma.controller;
 import fr.coding.pastadellamamma.model.Menu;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Group;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.geometry.Pos;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import javafx.geometry.Insets;
 
 public class MenuController implements Initializable {
     @FXML
@@ -35,6 +32,24 @@ public class MenuController implements Initializable {
     @FXML
     public AnchorPane dishes;
 
+    @FXML
+    public ListView<String> dishesList;
+
+    @FXML
+    public Label nameDetails;
+
+    @FXML
+    public Label descriptionDetails;
+
+    @FXML
+    public Label priceDetails;
+
+    @FXML
+    public ImageView imageDetails;
+
+    @FXML
+    public AnchorPane detailsAnchor;
+
     ArrayList<Menu> menus = new ArrayList<>();
 
     @Override
@@ -54,15 +69,69 @@ public class MenuController implements Initializable {
             Menu menu = new Menu(name, description, price, image);
             menus.add(menu);
 
-            VBox dishe = new VBox();
-            dishe.setSpacing(50);
+            dishesList.getItems().add(name);
 
-            Label disheName = new Label();
-            disheName.setText(name);
+            ////////////////////////////////////////////////////////
 
-            dishe.getChildren().add(disheName);
-            dishes.getChildren().add(dishe);
-            dishe.getStyleClass().add("dishees");
+            dishesList.setCellFactory(param -> new ListCell<String>() {
+                private final ImageView dishImageView = new ImageView();
+                @Override
+                public void updateItem(String name, boolean empty) {
+                    super.updateItem(name, empty);
+
+                    if (empty) {
+                        setText(null);
+                        setGraphic(null);
+                    } else {
+                        Menu menu = menus.stream()
+                                .filter(m -> m.getName().equals(name))
+                                .findFirst().get();
+
+                        dishImageView.setFitHeight(70);
+                        dishImageView.setFitWidth(70);
+                        dishImageView.setImage(new Image(menu.getImage()));
+
+                        setText(name);
+                        setGraphic(dishImageView);
+                    }
+                }
+            });
+        });
+
+        dishesList.setOnMouseClicked(e -> {
+            int index = dishesList.getSelectionModel().getSelectedIndex();
+
+            if (index < 0) {
+                return;
+            }
+
+            System.out.println(menus.get(index));
+
+            Menu selectedMenu = menus.get(index);
+            String name = selectedMenu.getName();
+            String description = selectedMenu.getDescription();
+            float price = selectedMenu.getPrice();
+            String image = selectedMenu.getImage();
+
+            nameDetails.setText(name);
+            descriptionDetails.setText(description);
+            priceDetails.setText(Float.toString(price) + " €");
+            imageDetails.setImage(new Image(image));
+
+            nameDetails.setMaxWidth(Double.MAX_VALUE);
+            detailsAnchor.setLeftAnchor(nameDetails, 0.0);
+            detailsAnchor.setRightAnchor(nameDetails, 0.0);
+            nameDetails.setAlignment(Pos.CENTER);
+
+            descriptionDetails.setMaxWidth(Double.MAX_VALUE);
+            detailsAnchor.setLeftAnchor(descriptionDetails, 0.0);
+            detailsAnchor.setRightAnchor(descriptionDetails, 0.0);
+            descriptionDetails.setAlignment(Pos.CENTER);
+
+            priceDetails.setMaxWidth(Double.MAX_VALUE);
+            detailsAnchor.setLeftAnchor(priceDetails, 0.0);
+            detailsAnchor.setRightAnchor(priceDetails, 0.0);
+            priceDetails.setAlignment(Pos.CENTER);
         });
     }
 }

@@ -12,4 +12,20 @@ public class Menu {
         this.price = price;
         this.image = image;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public String getImage() {
+        return image;
+    }
 }
