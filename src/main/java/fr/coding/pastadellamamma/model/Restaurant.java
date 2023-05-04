@@ -5,9 +5,6 @@ import java.util.List;
 
 public class Restaurant {
 
-
-    private List<Table> listTables;
-
     @Override
     public String toString() {
         return "Restaurant{" +
@@ -17,9 +14,11 @@ public class Restaurant {
     }
 
     private List<Employes>listEmployes;
+    private List<Table>listTables;
 
     public Restaurant() {
         this.listEmployes = new ArrayList<>();
+        this.listTables = new ArrayList<>();
     }
 
     public List<Employes> getListEmployes() {

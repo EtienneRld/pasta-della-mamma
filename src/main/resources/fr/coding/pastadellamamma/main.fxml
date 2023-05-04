@@ -13,10 +13,11 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-                  <MenuItem fx:id="home" mnemonicParsing="false" text="Accueil" />
-              <MenuItem fx:id="menu" mnemonicParsing="false" text="Menu" />
+                <MenuItem fx:id="home" mnemonicParsing="false" text="Accueil" />
+                <MenuItem fx:id="menu" mnemonicParsing="false" text="Menu" />
                 <MenuItem fx:id="amployeList" mnemonicParsing="false" text="Liste des employés" />
                 <MenuItem fx:id="employe" mnemonicParsing="false" text="Ajouter des employés" />
+                <MenuItem fx:id="room" mnemonicParsing="false" text="Gestion de salle" />
             </items>
           </Menu>
         </menus>

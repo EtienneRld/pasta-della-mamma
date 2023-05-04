@@ -15,7 +15,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         instantiateEmploye();
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("amployeList.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("main.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 720, 480);
         stage.setTitle("Pasta della Mama");
         stage.setScene(scene);
