@@ -4,7 +4,7 @@ import fr.coding.pastadellamamma.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.MenuItem;
+import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -13,26 +13,13 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class MainController implements Initializable {
+public class CommandesController implements Initializable {
 
     @FXML
     public VBox content;
 
     @FXML
-    public MenuItem home;
-
-    @FXML
-    public MenuItem menu;
-    @FXML
-    public MenuItem amployeList;
-    @FXML
-    public MenuItem employe;
-
-    @FXML
-    public MenuItem room;
-
-    @FXML
-    public MenuItem commandes;
+    public Button newOrder;
 
     public void loadFXML(String name, String title) {
         try {
@@ -48,15 +35,8 @@ public class MainController implements Initializable {
             throw new RuntimeException(ex);
         }
     }
-
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        //home.setOnAction(e -> loadFXML("main.fxml", "Pasta della mamma"));
-        menu.setOnAction(e -> loadFXML("menu.fxml", "Menu"));
-        amployeList.setOnAction(e -> loadFXML("amployeList.fxml", "Liste des employés"));
-        room.setOnAction(e -> loadFXML("table.fxml", "Gestion de salle"));
-        commandes.setOnAction(e -> loadFXML("commande.fxml", "Prise de commandes"));
-
-
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        newOrder.setOnAction(e -> loadFXML("nouvelleCommande.fxml","nouvelle commande"));
     }
 }
