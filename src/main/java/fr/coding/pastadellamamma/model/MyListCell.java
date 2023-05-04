@@ -10,15 +10,10 @@ import java.util.Arrays;
 
 public class MyListCell extends ListCell<Employes> {
 
-    private Button deleteButton = new Button("delete");
-
     public MyListCell(List listEmploye) {
         super();
 
         System.out.println(listEmploye.get(0));
-        deleteButton.setOnAction(event -> {
-
-        });
         Object[] array = listEmploye.toArray(Object[]::new);
         removeElement(array, 0);
         listEmploye = Arrays.stream(array).toList();
@@ -41,7 +36,6 @@ public class MyListCell extends ListCell<Employes> {
             setText(null);
             setGraphic(null);
         } else {
-            setGraphic(deleteButton);
             setText(item.toString());
         }
     }

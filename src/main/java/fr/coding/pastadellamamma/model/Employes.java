@@ -4,10 +4,11 @@ import java.util.Date;
 
 public class Employes {
 
-    public Employes(String name, String firstName, String job){
+    public Employes(String name, String firstName, String job, String hours){
         this.name = name;
         this.firstName =firstName;
         this.job = job;
+        this.hours = hours;
     }
 
 
@@ -16,13 +17,16 @@ public class Employes {
     private String job;
     private Date table;
 
+    private String hours;
+
     @Override
     public String toString() {
         return "Employes{" +
                 "name='" + name + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", job='" + job + '\'' +
-                ", table=" + table +
+                ", table='" + table + '\'' +
+                ", hours=" + hours +
                 '}';
     }
 
@@ -41,4 +45,6 @@ public class Employes {
     public Date getTable() {
         return table;
     }
+
+    public String getHours() { return hours; }
 }
