@@ -1,5 +1,6 @@
 package fr.coding.pastadellamamma.controller;
 
+import fr.coding.pastadellamamma.Main;
 import fr.coding.pastadellamamma.model.Menu;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -50,7 +51,7 @@ public class MenuController implements Initializable {
     @FXML
     public AnchorPane detailsAnchor;
 
-    ArrayList<Menu> menus = new ArrayList<>();
+   // ArrayList<Menu> menus = new ArrayList<>();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -67,7 +68,7 @@ public class MenuController implements Initializable {
             }
 
             Menu menu = new Menu(name, description, price, image);
-            menus.add(menu);
+            Main.pastaDellaMamma.getMenus().add(menu);
 
             dishesList.getItems().add(name);
 
@@ -83,7 +84,7 @@ public class MenuController implements Initializable {
                         setText(null);
                         setGraphic(null);
                     } else {
-                        Menu menu = menus.stream()
+                        Menu menu = Main.pastaDellaMamma.getMenus().stream()
                                 .filter(m -> m.getName().equals(name))
                                 .findFirst().get();
 
@@ -105,9 +106,9 @@ public class MenuController implements Initializable {
                 return;
             }
 
-            System.out.println(menus.get(index));
+            System.out.println(Main.pastaDellaMamma.getMenus().get(index));
 
-            Menu selectedMenu = menus.get(index);
+            Menu selectedMenu = Main.pastaDellaMamma.getMenus().get(index);
             String name = selectedMenu.getName();
             String description = selectedMenu.getDescription();
             float price = selectedMenu.getPrice();

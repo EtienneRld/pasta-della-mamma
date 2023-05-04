@@ -6,14 +6,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.coding.pastadellamamma.controller.CommandesController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.coding.pastadellamamma.controller.CommandesController">
    <children>
       <SplitPane dividerPositions="0.29797979797979796" prefHeight="403.0" prefWidth="600.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <Button fx:id="newOrder" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Nouvelle commande" />
-                  <ListView layoutX="-5.0" layoutY="139.0" prefHeight="262.0" prefWidth="184.0" />
+                  <Button fx:id="newOrder" layoutX="23.0" layoutY="26.0" mnemonicParsing="false" text="Nouvelle commande" />
+                  <ListView fx:id="orderListView" layoutX="-5.0" layoutY="170.0" prefHeight="231.0" prefWidth="184.0" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">

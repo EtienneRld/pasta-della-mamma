@@ -1,5 +1,6 @@
 package fr.coding.pastadellamamma;
 
+import fr.coding.pastadellamamma.model.Order;
 import fr.coding.pastadellamamma.model.Employes;
 import fr.coding.pastadellamamma.model.Restaurant;
 import fr.coding.pastadellamamma.model.Table;
@@ -25,24 +26,26 @@ public class Main extends Application {
     }
 
     public static Restaurant pastaDellaMamma;
-public  void instantiateEmploye(){
-    pastaDellaMamma = new Restaurant();
-    Employes eployer1 = new Employes("louis", "edward", "serveur");
-    Employes eployer2 = new Employes("pierre", "edward", "serveur");
-    pastaDellaMamma.addEmployes(eployer1);
-    pastaDellaMamma.addEmployes(eployer2);
-    Table table1 = new Table("A01",4);
-    Table table2 = new Table("A02",4);
-    Table table3 = new Table("A03",6);
-    Table table4 = new Table("A04",8);
-    Table table5 = new Table("A05",2);
-    pastaDellaMamma.addTables(table1);
-    pastaDellaMamma.addTables(table2);
-    pastaDellaMamma.addTables(table3);
-    pastaDellaMamma.addTables(table4);
-    pastaDellaMamma.addTables(table5);
-
-}
+    public  void instantiateEmploye(){
+        pastaDellaMamma = new Restaurant();
+        Employes eployer1 = new Employes("louis", "edward", "serveur");
+        Employes eployer2 = new Employes("pierre", "edward", "serveur");
+        pastaDellaMamma.addEmployes(eployer1);
+        pastaDellaMamma.addEmployes(eployer2);
+        Table table1 = new Table("A01",4);
+        Table table2 = new Table("A02",4);
+        Table table3 = new Table("A03",6);
+        Table table4 = new Table("A04",8);
+        Table table5 = new Table("A05",2);
+        pastaDellaMamma.addTables(table1);
+        pastaDellaMamma.addTables(table2);
+        pastaDellaMamma.addTables(table3);
+        pastaDellaMamma.addTables(table4);
+        pastaDellaMamma.addTables(table5);
+        Order commande1 = new Order("AO1","Leclerc");
+        pastaDellaMamma.addCommande(commande1);
+        table1.setBusy(true);
+    }
 
     public static void main(String[] args) {
         launch();

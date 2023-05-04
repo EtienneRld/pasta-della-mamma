@@ -5,35 +5,56 @@ import java.util.List;
 
 public class Restaurant {
 
-    @Override
-    public String toString() {
-        return "Restaurant{" +
-                "listTables=" + listTables +
-                ", listEmployes=" + listEmployes +
-                '}';
-    }
+    /**  Variables  **/
+    private ArrayList<Menu> menus = new ArrayList<>();  //menu du restaurant
+    private List<Employes>listEmployes; //list des employers du restaurant
+    private List<Table>listTables; //list des tables du restaurant
+    private List<Order>listCommandes;  //list des commandes - "a revoir"
 
-    private List<Employes>listEmployes;
-    private List<Table>listTables;
+    /**  Méthodes  **/
 
-    public Restaurant() {
+    public Restaurant() {  //constructeur
         this.listEmployes = new ArrayList<>();
         this.listTables = new ArrayList<>();
+        this.listCommandes = new ArrayList<>();
+
+    }
+
+    public List<Order> getListCommandes() {
+        return listCommandes;
     }
 
     public List<Employes> getListEmployes() {
         return listEmployes;
     }
 
-    public void addEmployes(Employes employes){
-        this.listEmployes.add(employes);
+    public ArrayList<Menu> getMenus() {
+        return menus;
     }
 
     public List<Table> getListTables() {
         return listTables;
     }
 
+    public void addCommande(Order commande){
+        this.listCommandes.add(commande);
+    }
+
     public void addTables(Table table){
         this.listTables.add(table);
+    }
+
+    public void addEmployes(Employes employes){
+        this.listEmployes.add(employes);
+    }
+
+    @Override
+    public String toString() {
+        return "Restaurant{" +
+               // "menus=" + menus +
+                ", listEmployes=" + listEmployes +
+                ", listTables=" + listTables +
+                ", listCommandes=" + listCommandes +
+                '}';
     }
 }

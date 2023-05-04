@@ -21,8 +21,17 @@ public class RoomController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-       List<Table> occuped =  Main.pastaDellaMamma.getListTables().stream().filter(e -> !e.isBusy()).collect(Collectors.toList());
-       ObservableList<Table> tables = FXCollections.observableArrayList(Main.pastaDellaMamma.getListTables());
-       showTables.setItems(tables);
+        //filtre pour récuperer les tableau inocupées
+        List<Table> occuped =  Main.pastaDellaMamma.getListTables().stream().filter(e -> !e.isBusy()).collect(Collectors.toList());
+
+        //remplie la list view de toutes les tables présentes dans le restaurants
+        ObservableList<Table> tables = FXCollections.observableArrayList(Main.pastaDellaMamma.getListTables());
+        List<String> tablesId= tables.stream().map(e -> {
+            String res;
+            if(e.isBusy()) res = " occupé";
+            else res = " libre";
+            return e.getId() + res;
+        }).collect(Collectors.toList());
+        showTables.getItems().addAll(tablesId);
     }
 }

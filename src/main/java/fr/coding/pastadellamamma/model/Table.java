@@ -10,18 +10,6 @@ public class Table {
 
    // private String nbRoom;   -> localisation de la table quand il y a plusieur piece  (terrace, interieur ... )
 
-    public int getNbPlaces() {
-        return nbPlaces;
-    }
-
-    public void setNbPlaces(int nbPlaces) {
-        this.nbPlaces = nbPlaces;
-    }
-
-    public String getCurrentCustomer() {
-        return currentCustomer;
-    }
-
     public void setCurrentCustomer(String currentCustomer) {
         this.currentCustomer = currentCustomer;
     }

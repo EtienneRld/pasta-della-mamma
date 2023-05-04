@@ -40,11 +40,11 @@ public class ShowEmployeController implements Initializable {
 
 
         ObservableList<Employes> employes = FXCollections.observableArrayList(Main.pastaDellaMamma.getListEmployes());
-        List<Employes> employe2 = employes;
+      //  List<Employes> employe2 = employes;
 
         employeListView.setItems(employes);
         //System.out.println(employes);
-        employeListView.setCellFactory(list -> new MyListCell(employe2));
+        employeListView.setCellFactory(list -> new MyListCell(employes));
         System.out.println(".");
     }
 
