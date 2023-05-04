@@ -38,7 +38,7 @@ public class AddNewOrderController implements Initializable {
     @FXML
     public Button addToTable;
 
-    public ObservableList<Table> listTables;
+    public static ObservableList<Table> listTables;
 
     private static void handle(ActionEvent e) {
     }
@@ -63,7 +63,6 @@ public class AddNewOrderController implements Initializable {
         });
 
         addToTable.setOnAction(e -> {
-
             Order newOrder = new Order(nTable.getValue().toString() ,idCommande.getText());  //instance de la nouvelle commande
             int nbP = Integer.parseInt(nbPerson.getText());  //set le nombre de personne a la table
             newOrder.setNbPerson(nbP);

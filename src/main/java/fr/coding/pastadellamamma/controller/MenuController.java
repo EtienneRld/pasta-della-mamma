@@ -64,7 +64,6 @@ public class MenuController implements Initializable {
     @FXML
     public ListView<String> ingredientsListView = new ListView<>();
 
-    ArrayList<Menu> menus = new ArrayList<>();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -141,7 +140,7 @@ public class MenuController implements Initializable {
             }
 
             System.out.println(Main.pastaDellaMamma.getMenus().get(index));
-            
+
             Menu selectedMenu = Main.pastaDellaMamma.getMenus().get(index);
             String type = selectedMenu.getType();
             String name = selectedMenu.getName();

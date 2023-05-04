@@ -48,6 +48,8 @@ public class Restaurant {
         this.listEmployes.add(employes);
     }
 
+    public void addMenu(Menu menu){ this.menus.add(menu); }
+
     @Override
     public String toString() {
         return "Restaurant{" +
