@@ -1,6 +1,9 @@
 package fr.coding.pastadellamamma.controller;
 
+
+
 import fr.coding.pastadellamamma.Main;
+import fr.coding.pastadellamamma.model.Chrono;
 import fr.coding.pastadellamamma.model.Order;
 import fr.coding.pastadellamamma.model.Table;
 import javafx.collections.FXCollections;
@@ -20,6 +23,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
+
+import static fr.coding.pastadellamamma.model.Chrono.endOrder;
 
 public class CommandesController implements Initializable {
 
@@ -82,8 +87,10 @@ public class CommandesController implements Initializable {
             loadFXML("orderDetails.fxml", "détail de la commande",content);
 
         });
-
-        newOrder.setOnAction(e -> loadFXML("AddNewOrder.fxml", "nouvelle commande",content));
+        //    Commande test = AddNewOrderController.envoieCommande();
+        if (Chrono.endOrder = false) {
+            newOrder.setOnAction(e -> loadFXML("AddNewOrder.fxml", "nouvelle commande"));
+        }
     }
 
     public static void addNewOrder(Order order){
