@@ -78,7 +78,6 @@ public class MenuController implements Initializable {
 
         ingredientsListView.setItems(FXCollections.observableArrayList(alphabeticIngredient));
         ingredientsListView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        System.out.println(alphabeticIngredient);
 
 
 
@@ -91,7 +90,6 @@ public class MenuController implements Initializable {
             String image = imageField.getText();
             float price;
 
-            System.out.println(selectedIngredients);
 
             try {
                 price = Float.parseFloat(priceField.getText());
@@ -139,7 +137,6 @@ public class MenuController implements Initializable {
                 return;
             }
 
-            System.out.println(Main.pastaDellaMamma.getMenus().get(index));
 
             Menu selectedMenu = Main.pastaDellaMamma.getMenus().get(index);
             String type = selectedMenu.getType();
@@ -178,7 +175,6 @@ public class MenuController implements Initializable {
 
         typeComboBox.setOnAction(e -> {
             String type = typeComboBox.getSelectionModel().getSelectedItem();
-            System.out.println(type);
         });
     }
 }

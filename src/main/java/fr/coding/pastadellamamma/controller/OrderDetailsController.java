@@ -78,7 +78,6 @@ public class OrderDetailsController implements Initializable {
             CommandesController.deleteOrder((Order) orderToDelete.get(0));
         });
         btnOrderMenu.setOnAction(e-> {
-            System.out.println(currentOrder.getOrderMenu());
             Double countOrder = currentOrder.getOrderMenu().stream().mapToDouble(Menu::getPrice).sum();
             lblPrixTotal.setText(String.valueOf(countOrder));
             List<Integer> showMenuStatu = showOrder.stream().map(i -> 1).collect(Collectors.toList());

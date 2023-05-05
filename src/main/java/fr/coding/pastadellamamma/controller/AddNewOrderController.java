@@ -54,7 +54,6 @@ public class AddNewOrderController implements Initializable {
         listTables.addListener(new ListChangeListener<Table>() {  //écouter les changement sur l'observable list
             @Override
             public void onChanged(Change<? extends Table> change) {
-                System.out.println(listTables);
                 List<Table> freeTable  = listTables.stream().filter(e -> !e.isBusy()).collect(Collectors.toList());
                 List<String> freeTableID = freeTable.stream().map(e -> e.getId()).collect(Collectors.toList());
                 nTable.getItems().clear();
@@ -68,10 +67,8 @@ public class AddNewOrderController implements Initializable {
             newOrder.setNbPerson(nbP);
             CommandesController.addNewOrder(newOrder);  //ajoute la commande a la list
             List<Table> testTable = Main.pastaDellaMamma.getListTables().stream().filter(i -> i.getId() == nTable.getValue().toString()).collect(Collectors.toList());
-            System.out.println(testTable.get(0));
             testTable.get(0).setBusy(true);
             listTables.remove(testTable.get(0));
-            System.out.println(Main.pastaDellaMamma.getListCommandes());
 
         });
 

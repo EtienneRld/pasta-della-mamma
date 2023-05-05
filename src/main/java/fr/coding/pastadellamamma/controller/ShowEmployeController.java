@@ -68,7 +68,6 @@ public class ShowEmployeController implements Initializable {
         //List<Employes> employe2 = employes;
 
         employeListView.setItems(employes);
-        //System.out.println(employes);
         employeListView.setCellFactory(list -> new ListCell<Employes>(){
 
             @Override
@@ -90,9 +89,6 @@ public class ShowEmployeController implements Initializable {
 
         });
 
-        System.out.println(".");
-
-
         employeListView.setOnMouseClicked(e -> {
             int index = employeListView.getSelectionModel().getSelectedIndex();
             if (index >= 0){
@@ -108,7 +104,6 @@ public class ShowEmployeController implements Initializable {
             Employes employe = new Employes( name, firstName, currentJob, hours);
             employes.add(employe);
             hours = "0";
-            System.out.println(employes);
         });
 
 

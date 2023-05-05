@@ -22,8 +22,6 @@ public class MainController implements Initializable {
     public MenuItem menu;
     @FXML
     public MenuItem amployeList;
-    @FXML
-    public MenuItem employe;
 
     @FXML
     public MenuItem room;
@@ -32,6 +30,7 @@ public class MainController implements Initializable {
     public MenuItem commandes;
 
     public void loadFXML(String name, String title) {
+
         try {
             VBox menu = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(name)));
             Stage stage = (Stage)content.getScene().getWindow();
@@ -49,7 +48,7 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         menu.setOnAction(e -> loadFXML("menu.fxml", "Menu"));
-        amployeList.setOnAction(e -> loadFXML("amployeList.fxml", "Liste des employés"));
+        amployeList.setOnAction(e -> loadFXML("amployeList.fxml", "Gestion des employés"));
         room.setOnAction(e -> loadFXML("table.fxml", "Gestion de salle"));
         commandes.setOnAction(e -> loadFXML("commande.fxml", "Prise de commandes"));
     }

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.coding.pastadellamamma.controller.ShowEmployeController">
    <children>
       <Button fx:id="changeSceneBtn" mnemonicParsing="false" text="Button" />
       <ListView fx:id="employeListView" prefHeight="200.0" prefWidth="200.0" />
