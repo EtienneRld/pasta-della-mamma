@@ -25,9 +25,7 @@ import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
-import java.util.Objects;
-import java.util.ResourceBundle;
+import java.util.*;
 
 import fr.coding.pastadellamamma.Main;
 import fr.coding.pastadellamamma.model.Employes;
@@ -47,8 +45,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 
+import javax.security.auth.login.AccountLockedException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 public class ShowEmployeController implements Initializable {
 
@@ -87,7 +87,7 @@ public class ShowEmployeController implements Initializable {
     private String firstName;
     private String currentJob;
 
-
+    public ObservableList<Employes> employes;
 
     public ShowEmployeController() throws IOException {
     }
@@ -100,16 +100,20 @@ public class ShowEmployeController implements Initializable {
 
         jobCBox.getItems().addAll(jobs);
 
-        ObservableList<Employes> employes = FXCollections.observableList(Main.pastaDellaMamma.getListEmployes());
+        employes = FXCollections.observableList(Main.pastaDellaMamma.getListEmployes());
         employes.addListener(new ListChangeListener<Employes>() {
             @Override
             public void onChanged(Change<? extends Employes> change) {
-                System.out.println("test");
+                System.out.println(employes);
+
+                employeListView.getItems().clear();
+                employeListView.getItems().addAll(employes);
+              //  System.out.println(employes);
             }
         });
         //List<Employes> employe2 = employes;
 
-        employeListView.setItems(employes);
+        employeListView.getItems().addAll(employes);
         //System.out.println(employes);
         employeListView.setCellFactory(list -> new ListCell<Employes>(){
 
@@ -173,25 +177,33 @@ public class ShowEmployeController implements Initializable {
             if (index != null && addHours != 0 && removeHours == 0){
                 int result = addHours + intIndexHours;
                 String stringResult = String.valueOf(result);
-                employes.get(index).setHours(stringResult);
-                System.out.println(employes.get(index));
+                List<Employes> test = employes.stream().filter(x -> x == employes.get(index)).collect(Collectors.toList());
+                test.get(0).setHours(stringResult);
+                List<Employes> saveList = new ArrayList<>(employes);
+                employes.clear();
+                employes.addAll(saveList);
                 addHoursTxtField.setText("0");
 
 
             } else if (index != null && removeHours != 0 && addHours == 0) {
                 int result = intIndexHours - removeHours;
                 String stringResult = String.valueOf(result);
-                employes.get(index).setHours(stringResult);
-                System.out.println(employes.get(index));
+                List<Employes> test = employes.stream().filter(x -> x == employes.get(index)).collect(Collectors.toList());
+                test.get(0).setHours(stringResult);
+                List<Employes> saveList = new ArrayList<>(employes);
+                employes.clear();
+                employes.addAll(saveList);
                 removeHoursTxtField.setText("0");
 
             } else if (index != null && removeHours != 0 && addHours != 0) {
                 int result = intIndexHours + addHours - removeHours;
                 String stringResult = String.valueOf(result);
-                employes.get(index).setHours(stringResult);
-                System.out.println(employes.get(index));
+                List<Employes> test = employes.stream().filter(x -> x == employes.get(index)).collect(Collectors.toList());
+                test.get(0).setHours(stringResult);
+                List<Employes> saveList = new ArrayList<>(employes);
+                employes.clear();
+                employes.addAll(saveList);
                 removeHoursTxtField.setText("0");
-                addHoursTxtField.setText("0");
             } else {
                 System.out.println("error");
             }
