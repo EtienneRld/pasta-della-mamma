@@ -14,9 +14,9 @@ public class Restaurant {
     /**  Méthodes  **/
 
     public Restaurant() {  //constructeur
-        this.listEmployes = new ArrayList<>();
-        this.listTables = new ArrayList<>();
-        this.listCommandes = new ArrayList<>();
+        this.listEmployes = new ArrayList<>();  //tous les employes de l'entreprise
+        this.listTables = new ArrayList<>(); //toutes les tables présentent en salle
+        this.listCommandes = new ArrayList<>(); //toutes les commandes "du rush actuel"
 
     }
 

@@ -5,12 +5,10 @@ import java.util.List;
 
 public class Order {
     private int totalPrice;
-    private int commandeStatus;
+    private int commandeStatus;  //0 commande - 1 servit - 2 payer
     private String customerName;
     private String idTables;
-
     private List<Menu> orderMenu;
-
     private int nbPerson;
 
     public List<Menu> getOrderMenu() {
@@ -37,20 +35,16 @@ public class Order {
         return idTables;
     }
 
-    public int getNbPerson() {
-        return nbPerson;
-    }
-
     public void setNbPerson(int nbPerson) {
         this.nbPerson = nbPerson;
     }
 
     public Order(String idTables, String customerName ){
-        this.orderMenu = new ArrayList<>();
+        this.orderMenu = new ArrayList<>();  //liste des plats de la commande
         this.idTables = idTables;
-        this.customerName = customerName;
+        this.customerName = customerName;  //idCommandes
         this.totalPrice = 0;
-        this.commandeStatus = 0;  //0 en attente de prise de commmande /1 en attente de service /2 servit
+        this.commandeStatus = 0;  //a revoir
     }
 
     @Override
@@ -60,6 +54,7 @@ public class Order {
                 ", commandeStatus=" + commandeStatus +
                 ", customerName='" + customerName + '\'' +
                 ", idTables='" + idTables + '\'' +
+                ", orderMenu='" + orderMenu + '\'' +
                 '}';
     }
 }

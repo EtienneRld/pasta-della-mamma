@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.coding.pastadellamamma.controller.OrderDetailsController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.coding.pastadellamamma.controller.OrderDetailsController">
    <children>
       <HBox prefHeight="47.0" prefWidth="400.0" spacing="30.0">
          <children>
@@ -34,41 +34,41 @@
             <Insets />
          </VBox.margin>
       </HBox>
-      <HBox fillHeight="false" prefHeight="323.0" prefWidth="400.0">
+      <HBox alignment="CENTER" fillHeight="false" prefHeight="323.0" prefWidth="400.0">
          <children>
-            <VBox>
+            <VBox prefHeight="323.0" prefWidth="161.0">
                <children>
                   <Label text="Commande :" />
-                  <ListView fx:id="orderListView" prefHeight="309.0" prefWidth="100.0" />
+                  <ListView fx:id="orderListView" prefHeight="306.0" prefWidth="146.0" />
                </children>
             </VBox>
-            <VBox prefHeight="323.0" prefWidth="33.0">
+            <VBox prefHeight="323.0" prefWidth="36.0">
                <children>
-                  <Label text="Qts :" />
-                  <ListView prefHeight="323.0" prefWidth="28.0" />
+                  <Label text="Status" />
+                  <ListView fx:id="listViewStatus" prefHeight="306.0" prefWidth="89.0" />
                </children>
             </VBox>
-            <VBox prefHeight="323.0" prefWidth="44.0">
+            <VBox prefHeight="323.0" prefWidth="61.0">
                <children>
                   <Label text="Prix :" />
-                  <ListView fx:id="priceListView" prefHeight="306.0" prefWidth="36.0" />
+                  <ListView fx:id="priceListView" prefHeight="306.0" prefWidth="41.0" />
                </children>
             </VBox>
-            <HBox prefHeight="325.0" prefWidth="223.0">
+            <HBox prefHeight="323.0" prefWidth="342.0">
                <children>
-                  <VBox alignment="TOP_CENTER" prefHeight="323.0" prefWidth="152.0">
+                  <VBox alignment="TOP_CENTER" prefHeight="323.0" prefWidth="173.0">
                      <children>
                         <Label text="Menu" />
-                        <ListView fx:id="menuList" prefHeight="306.0" prefWidth="149.0" />
+                        <ListView fx:id="menuList" prefHeight="306.0" prefWidth="200.0" />
                      </children>
                   </VBox>
-                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0">
+                  <VBox alignment="TOP_CENTER" prefHeight="323.0" prefWidth="73.0" spacing="20.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="87.0" text="Boison" />
-                        <Button layoutX="26.0" layoutY="10.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="87.0" text="Entrée" />
-                        <Button layoutX="26.0" layoutY="62.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="90.0" text="Plat" />
-                        <Button layoutX="26.0" layoutY="88.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="87.0" text="Dessert" />
-                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" text="Commander" />
+                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="85.0" text="Boison" />
+                        <Button layoutX="26.0" layoutY="10.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="85.0" text="Entrée" />
+                        <Button layoutX="26.0" layoutY="62.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="85.0" text="Plat" />
+                        <Button layoutX="26.0" layoutY="88.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="85.0" text="Dessert" />
+                        <Button fx:id="btnOrderMenu" mnemonicParsing="false" prefHeight="26.0" prefWidth="85.0" text="Valider" />
                      </children>
                      <HBox.margin>
                         <Insets />
@@ -84,7 +84,7 @@
       <HBox alignment="BOTTOM_CENTER" layoutX="10.0" layoutY="55.0" prefHeight="25.0" prefWidth="400.0">
          <children>
             <Label text="Prix total : " />
-            <Label text="???" />
+            <Label fx:id="lblPrixTotal" text="???" />
             <Button alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" mnemonicParsing="false" text="Payer">
                <HBox.margin>
                   <Insets left="60.0" right="30.0" />

@@ -2,53 +2,25 @@ package fr.coding.pastadellamamma.controller;
 
 import fr.coding.pastadellamamma.Main;
 import fr.coding.pastadellamamma.model.Employes;
-import fr.coding.pastadellamamma.model.MyListCell;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.event.ActionEvent;
 
 
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 
 import javafx.scene.layout.VBox;
-import javafx.stage.Modality;
-import javafx.stage.PopupWindow;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
-import fr.coding.pastadellamamma.Main;
-import fr.coding.pastadellamamma.model.Employes;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-import fr.coding.pastadellamamma.Main;
-import fr.coding.pastadellamamma.model.Employes;
-import fr.coding.pastadellamamma.controller.ShowEmployeController;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextField;
-
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class ShowEmployeController implements Initializable {
 
