@@ -20,8 +20,10 @@ public class MainController implements Initializable {
 
     @FXML
     public MenuItem menu;
+
     @FXML
     public MenuItem amployeList;
+
     @FXML
     public MenuItem employe;
 
@@ -30,6 +32,9 @@ public class MainController implements Initializable {
 
     @FXML
     public MenuItem commandes;
+
+    @FXML
+    public MenuItem service;
 
     public void loadFXML(String name, String title) {
         try {
@@ -52,5 +57,6 @@ public class MainController implements Initializable {
         amployeList.setOnAction(e -> loadFXML("amployeList.fxml", "Liste des employés"));
         room.setOnAction(e -> loadFXML("table.fxml", "Gestion de salle"));
         commandes.setOnAction(e -> loadFXML("commande.fxml", "Prise de commandes"));
+        service.setOnAction(e -> loadFXML("chrono.fxml", "Chrono"));
     }
 }

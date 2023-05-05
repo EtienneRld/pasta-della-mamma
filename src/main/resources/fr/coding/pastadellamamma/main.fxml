@@ -19,6 +19,7 @@
                 <MenuItem fx:id="employe" mnemonicParsing="false" text="Ajouter des employés" />
                 <MenuItem fx:id="room" mnemonicParsing="false" text="Gestion de salle" />
                 <MenuItem fx:id="commandes" mnemonicParsing="false" text="Prise de commandes" />
+                  <MenuItem fx:id="service" mnemonicParsing="false" text="Service" />
             </items>
           </Menu>
         </menus>

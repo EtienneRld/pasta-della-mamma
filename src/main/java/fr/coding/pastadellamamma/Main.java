@@ -20,9 +20,6 @@ public class Main extends Application {
         stage.setTitle("Pasta della Mama");
         stage.setScene(scene);
         stage.show();
-
-
-
     }
 
     public static Restaurant pastaDellaMamma;
