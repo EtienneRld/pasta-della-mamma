@@ -80,7 +80,6 @@ public class CommandesController implements Initializable {
             List<Order> currentOrder =  listCommande.stream().filter(l -> l.getCustomerName()==orderListView.getItems().get(index)).collect(Collectors.toList());
             OrderDetailsController.setOrder(currentOrder.get(0));
             loadFXML("orderDetails.fxml", "détail de la commande",content);
-
         });
 
         newOrder.setOnAction(e -> loadFXML("AddNewOrder.fxml", "nouvelle commande",content));

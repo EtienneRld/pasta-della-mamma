@@ -47,8 +47,19 @@ public class Menu {
         return menuStatus;
     }
 
-    public void setStatus() {
-        this.menuStatus += 1;
+    public void setStatus(int status) {
+        this.menuStatus = status;
     }
 
+    @Override
+    public String toString() {
+        return "Menu{" +
+                "type='" + type + '\'' +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", ingredient='" + ingredient + '\'' +
+                ", price=" + price +
+                ", menuStatus=" + menuStatus +
+                '}';
+    }
 }
