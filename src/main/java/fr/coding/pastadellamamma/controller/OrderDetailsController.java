@@ -14,6 +14,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
@@ -28,6 +29,10 @@ public class OrderDetailsController implements Initializable {
     public Button btnOrderMenu;
     @FXML
     public Button deleteOrder;
+    @FXML
+    public Button btnPret;
+    @FXML
+    public Button btnServit;
     @FXML
     public ListView menuList;
     @FXML
@@ -44,6 +49,8 @@ public class OrderDetailsController implements Initializable {
 
     private  ObservableList<Menu> showOrder;
 
+    public Integer indexMenu = null;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //set valeur des informations de commande
@@ -59,7 +66,9 @@ public class OrderDetailsController implements Initializable {
         menuList.setOnMouseClicked(e -> {
             int index = menuList.getSelectionModel().getSelectedIndex();
             List<Menu> currentMenu =  menus.stream().filter(l -> l.getName()==menuList.getItems().get(index)).collect(Collectors.toList());
-            addMenuToOrder(currentMenu.get(0));
+            Menu newMenu = new Menu(currentMenu.get(0).getType(),currentMenu.get(0).getName(),currentMenu.get(0).getDescription(),currentMenu.get(0).getIngredient(),currentMenu.get(0).getPrice(),currentMenu.get(0).getImage());
+            addMenuToOrder(newMenu);
+
         });
 
 
@@ -80,10 +89,28 @@ public class OrderDetailsController implements Initializable {
         btnOrderMenu.setOnAction(e-> {
             Double countOrder = currentOrder.getOrderMenu().stream().mapToDouble(Menu::getPrice).sum();
             lblPrixTotal.setText(String.valueOf(countOrder));
-            List<Integer> showMenuStatu = showOrder.stream().map(i -> 1).collect(Collectors.toList());
-            listViewStatus.getItems().clear();
-            listViewStatus.getItems().addAll(showMenuStatu);
+            currentOrder.setMenuOrdered(showOrder);
+            currentOrder.getOrderMenu().stream().forEach(menu -> {
+                if(menu.getMenuStatus()==0){
+                    menu.setStatus(1);
+                }
             });
+            listViewStatus.getItems().clear();
+            List<Integer> showMenuStatus = currentOrder.getMenuOrdered().stream().map(m -> m.getMenuStatus()).collect(Collectors.toList());
+            listViewStatus.getItems().addAll(showMenuStatus);
+            });
+
+        btnPret.setOnAction(e -> {
+            indexMenu = orderListView.getSelectionModel().getSelectedIndex();
+            if(indexMenu != null && showOrder.get(indexMenu).getMenuStatus()!=0){
+                List<Menu> test = currentOrder.getMenuOrdered().stream().filter(x -> x == showOrder.get(indexMenu)).collect(Collectors.toList());
+                test.get(0).setStatus(2);
+                List<Menu> menuReady = new ArrayList<>(currentOrder.getOrderMenu());
+                List<String> menuStatus = menuReady.stream().map(j ->String.valueOf(j.getMenuStatus())).collect(Collectors.toList());
+                listViewStatus.getItems().clear();
+                listViewStatus.getItems().addAll(menuStatus);
+            }
+        });
     }
 
     public void showContent(){
