@@ -19,10 +19,17 @@ public class MainController implements Initializable {
     public VBox content;
 
     @FXML
-    public MenuItem home;
+    public MenuItem menu;
+    @FXML
+    public MenuItem amployeList;
+    @FXML
+    public MenuItem employe;
 
     @FXML
-    public MenuItem menu;
+    public MenuItem room;
+
+    @FXML
+    public MenuItem commandes;
 
     public void loadFXML(String name, String title) {
         try {
@@ -41,7 +48,9 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        home.setOnAction(e -> loadFXML("main.fxml", "Pasta della mamma"));
         menu.setOnAction(e -> loadFXML("menu.fxml", "Menu"));
+        amployeList.setOnAction(e -> loadFXML("amployeList.fxml", "Liste des employés"));
+        room.setOnAction(e -> loadFXML("table.fxml", "Gestion de salle"));
+        commandes.setOnAction(e -> loadFXML("commande.fxml", "Prise de commandes"));
     }
 }

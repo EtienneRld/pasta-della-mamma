@@ -7,14 +7,18 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.coding.pastadellamamma.controller.MainController">
+<VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.coding.pastadellamamma.controller.MainController">
    <children>
       <MenuBar prefWidth="560.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-                  <MenuItem fx:id="home" mnemonicParsing="false" text="Accueil" />
-              <MenuItem fx:id="menu" mnemonicParsing="false" text="Menu" />
+                <!--MenuItem fx:id="home" mnemonicParsing="false" text="Accueil" /-->
+                <MenuItem fx:id="menu" mnemonicParsing="false" text="Menu" />
+                <MenuItem fx:id="amployeList" mnemonicParsing="false" text="Liste des employés" />
+                <MenuItem fx:id="employe" mnemonicParsing="false" text="Ajouter des employés" />
+                <MenuItem fx:id="room" mnemonicParsing="false" text="Gestion de salle" />
+                <MenuItem fx:id="commandes" mnemonicParsing="false" text="Prise de commandes" />
             </items>
           </Menu>
         </menus>
@@ -22,9 +26,9 @@
             <Point3D />
          </rotationAxis>
          <VBox.margin>
-            <Insets bottom="60.0" />
+            <Insets bottom="20.0" />
          </VBox.margin>
       </MenuBar>
-      <VBox fx:id="content" prefHeight="300.0" prefWidth="500.0" />
+      <VBox fx:id="content" prefHeight="376.0" prefWidth="600.0" VBox.vgrow="NEVER" />
    </children>
 </VBox>
