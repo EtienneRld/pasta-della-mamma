@@ -21,7 +21,7 @@ public class Main extends Application {
 
     public static Restaurant pastaDellaMamma;
 
-    public  void instantiateEmploye(){
+    public  void instantiateEmploye() {
         pastaDellaMamma = new Restaurant();
         Employes eployer1 = new Employes("louis", "edward", "serveur","10");
         Employes eployer2 = new Employes("pierre", "edward", "serveur","10");

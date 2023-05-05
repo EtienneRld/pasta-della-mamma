@@ -89,16 +89,16 @@ public class CommandesController implements Initializable {
         });
         //    Commande test = AddNewOrderController.envoieCommande();
         if (Chrono.endOrder = false) {
-            newOrder.setOnAction(e -> loadFXML("AddNewOrder.fxml", "nouvelle commande"));
+            newOrder.setOnAction(e -> loadFXML("AddNewOrder.fxml", "nouvelle commande", content));
         }
     }
 
-    public static void addNewOrder(Order order){
+    public static void addNewOrder(Order order) {
         listCommande.add(order);
         Main.pastaDellaMamma.getListCommandes().add(order);
     }
 
-    public static void deleteOrder(Order order){
+    public static void deleteOrder(Order order) {
         List freeTable = Main.pastaDellaMamma.getListTables().stream().filter(e -> e.getId() == order.getIdTables()).collect(Collectors.toList());
         Table table = (Table) freeTable.get(0);
         table.setBusy(false);
