@@ -19,6 +19,7 @@ public class Employes {
 
     private String hours;
 
+
     @Override
     public String toString() {
         return "Employes{" +
@@ -44,6 +45,10 @@ public class Employes {
 
     public Date getTable() {
         return table;
+    }
+
+    public void setHours(String hours) {
+        this.hours = hours;
     }
 
     public String getHours() { return hours; }

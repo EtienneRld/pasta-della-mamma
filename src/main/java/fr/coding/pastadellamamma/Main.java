@@ -47,8 +47,6 @@ public class Main extends Application {
         pastaDellaMamma.addMenu(menu1);
     }
 
-
-
     public static void main(String[] args) {
         launch();
     }
